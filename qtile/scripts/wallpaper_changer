@@ -1,0 +1,47 @@
+#!/bin/bash 
+wallpaper_dir="$HOME/Pictures/wallpapers"
+max_memory=10
+memory_file="$HOME/.config/qtile/scripts/wphis"
+
+function new(){
+    random_wp="$(ls $wallpaper_dir | shuf -n 1)"
+    nitrogen --save --set-zoom-fill "$wallpaper_dir/$random_wp" &
+    storedAmount="$(wc -l < $memory_file)"
+    if [[ "$storedAmount" -ge $max_memory ]]
+    then
+        echo "$(tail -n +2 $memory_file)" > $memory_file
+        echo $random_wp >> $memory_file
+    else
+        echo $random_wp >> $memory_file
+    fi
+}
+
+function prev(){
+    prev_wp="$(tail -n 2 $memory_file | head -n 1)"
+    current_wp="$(tail -n 1 $memory_file)"
+    nitrogen --save --set-zoom-fill "$wallpaper_dir/$prev_wp" &
+    newline=$'\n'
+    echo "$current_wp${newline}$(head -n -1 $memory_file)" > $memory_file
+}
+
+
+function next(){
+    prev_wp="$(head -n 1 $memory_file)"
+    nitrogen --save --set-zoom-fill "$wallpaper_dir/$prev_wp" &
+    echo "$(tail -n +2 $memory_file)" > $memory_file
+    echo $prev_wp >> $memory_file
+}
+
+function delete(){
+    current_wp="$(tail -n 1 $memory_file)"
+    echo "$(head -n -1 $memory_file)" > $memory_file
+    rm "$wallpaper_dir/$current_wp"
+}
+
+
+case $1 in
+    -n) new;;
+    -p) prev;;
+    -s) next;;
+    -d) delete;;
+esac
