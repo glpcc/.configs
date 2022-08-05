@@ -1,0 +1,58 @@
+configuration {
+    modi: "window,drun,ssh,run";
+    font: "FiraCode Nerd Font 14";
+    show-icons: false;
+    icon-theme: "Papirus";
+    hover-select: true;
+    drun-display-format: "{name}";
+    background-color: #282c34;
+}
+
+window {
+    transparency: "real";
+    background-color: #282c34;
+    width: 50%;
+    padding: 20px;
+}
+listview{
+    columns: 4;
+    lines: 1;
+    fixed-columns: true;
+    spacing: 20px;
+    background-color: #282c34;
+    scrollbar: false;
+    padding: 20px 0px 0px 0px;
+}
+prompt{
+    text-color: White;
+}
+inputbar{
+    text-color: White;
+}
+element{
+    orientation: vertical;
+    padding: 8px;
+    spacing: 4px;
+    border-radius: 15px;
+    background-color:#454b57;
+
+}
+entry{
+    text-color: White;
+}
+element.normal.normal{
+    background-color:#454b57;
+    text-color: White;
+}
+element.alternate.normal{
+    background-color:#454b57;
+    text-color: White;
+}
+element.selected.normal{
+    background-color:#c678dd;
+}
+element-text{
+    font: "FiraCode Nerd Font 50";
+    horizontal-align: 0.5;
+
+}
