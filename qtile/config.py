@@ -6,12 +6,12 @@ from typing import List  # noqa: F401
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 from libqtile import layout, bar, hook
-from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule, ScratchPad, DropDown
 from libqtile.command import lazy
 from libqtile.widget import Spacer
 #import arcobattery
 
-#mod4 or mod = super key
+#mod4 or mod = super key1
 mod = "mod4"
 mod1 = "alt"
 mod2 = "control"
@@ -190,6 +190,12 @@ for i in groups:
         Key([mod, "control"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
     ])
 
+# Add a ScratchPad Group With a terminal dropdown
+groups.append(
+    ScratchPad("scratchpad", [DropDown("term", "alacritty", y=0.15,height=0.7)])
+    )
+# Add ScratchPad toogle key
+keys.append(Key([mod, "shift"], "Return", lazy.group['scratchpad'].dropdown_toggle('term')),)
 
 def init_layout_theme():
     return {"margin":5,
@@ -210,7 +216,6 @@ layouts = [
     layout.RatioTile(**layout_theme),
     layout.Max(**layout_theme)
 ]
-
 # COLORS FOR THE BAR
 #Theme name : ArcoLinux Default
 def init_colors():
