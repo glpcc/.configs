@@ -192,10 +192,16 @@ for i in groups:
 
 # Add a ScratchPad Group With a terminal dropdown
 groups.append(
-    ScratchPad("scratchpad", [DropDown("term", "alacritty", y=0.15,height=0.7)])
+    ScratchPad("scratchpad", [
+        DropDown("term", "alacritty", y=0.15,height=0.7),
+        DropDown("python", "alacritty -e 'python' ", y=0.15,height=0.7)
+        ])
     )
 # Add ScratchPad toogle key
-keys.append(Key([mod, "shift"], "Return", lazy.group['scratchpad'].dropdown_toggle('term')),)
+keys.extend([
+    Key([mod, "shift"], "Return", lazy.group['scratchpad'].dropdown_toggle('term')),
+    Key([mod, "shift"], "p", lazy.group['scratchpad'].dropdown_toggle('python')),
+])
 
 def init_layout_theme():
     return {"margin":5,
@@ -328,6 +334,7 @@ def init_widgets_list():
                     foreground=colors[7],
                     padding=0,
                     show_short_text=False,
+                    full_char='󰁹',
                     charge_char='',
                     discharge_char='',
                     empty_char='',
