@@ -1,18 +1,10 @@
 
-declare -A texts
-texts[logout]=""
-texts[suspend]="鈴"
-texts[reboot]=""
-texts[shutdown]=""
 
 
 
 if [ -z "$1" ]
 then
-    for i in "${texts[@]}"
-    do 
-        echo $i;
-    done
+    echo -e '\n\n\n\n鈴'
 else
     case $1 in
         )
@@ -26,6 +18,9 @@ else
             ;;
         )
             systemctl poweroff
+            ;;
+        )
+            betterlockscreen -l >> /dev/null &
             ;;
     esac
 fi
