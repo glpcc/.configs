@@ -55,7 +55,7 @@ super + shift + KP_Enter
 
 # Screenshot
 super + shift + s
-    spectacle
+    spectacle -r
 
 #Rofi
 super + shift + d
