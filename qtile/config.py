@@ -160,7 +160,7 @@ group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",]
 #group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "section", "egrave", "exclam", "ccedilla", "agrave",]
 
 #group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
-group_labels = ["", "", "", "", "", "", "", "", "", "ﬁ"]
+group_labels = ["", "", "", "", "", "", "", "", "", "󰙯"]
 #group_labels = ["Web", "Edit/chat", "Image", "Gimp", "Meld", "Video", "Vb", "Files", "Mail", "Music",]
 
 group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall",]
@@ -271,7 +271,7 @@ def init_widgets_list():
                 cust_spacer,
                 widget.Clock(
                         font=font1,
-                        format="    %d/%m/%y  %H:%M  ",
+                        format="    %d/%m/%y  %H:%M  ",
                         foreground=colors[3],
                         padding=0,
                         fontsize=16,
@@ -285,7 +285,7 @@ def init_widgets_list():
                         font=font1,
                         foreground=colors[10],
                         padding=0,
-                        format='   {down} {up}  ',
+                        format='   {down:.2f}MB  {up:.2f}MB  ',
                         fontsize=16,
                         prefix='M',
                          decorations=[
@@ -298,7 +298,7 @@ def init_widgets_list():
                         backlight_name='intel_backlight',
                         foreground=colors[4],
                         padding=0,
-                        format='  {percent:2.0%} ',
+                        format='  {percent:2.0%} ',
                         fontsize=16,
                          decorations=[
                             RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=0)
@@ -335,9 +335,9 @@ def init_widgets_list():
                     padding=0,
                     show_short_text=False,
                     full_char='󰁹',
-                    charge_char='',
-                    discharge_char='',
-                    empty_char='',
+                    charge_char='󰂋',
+                    discharge_char='󰁿',
+                    empty_char='󰂃',
                     format='  {char} {percent:2.0%}  ',
                     fontsize=16,
                     update_interval=1,
@@ -362,7 +362,7 @@ def init_widgets_list():
                         font=font1,
                         foreground=colors[12],
                         padding=0,
-                        format='   {load_percent}%  ',
+                        format='   {load_percent}%  ',
                         fontsize=16,
                         update_interval=1,
                          decorations=[
@@ -374,7 +374,7 @@ def init_widgets_list():
                         font=font1,
                         foreground=colors[4],
                         padding=0,
-                        format='   {MemUsed: .1f}{mm}/{MemTotal: .1f}{mm}  ',
+                        format='   {MemUsed: .1f}{mm}/{MemTotal: .1f}{mm}  ',
                         fontsize=16,
                         measure_mem='G',
                         decorations=[
@@ -386,7 +386,7 @@ def init_widgets_list():
                         font=font1,
                         foreground=colors[8],
                         padding=0,
-                        fmt='  墳 {}  ',
+                        fmt='   {}  ',
                         fontsize=16,
                         scroll=True,
                          decorations=[
