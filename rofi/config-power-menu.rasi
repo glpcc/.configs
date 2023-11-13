@@ -15,7 +15,7 @@ window {
     padding: 20px;
 }
 listview{
-    columns: 5;
+    columns: 4; 
     lines: 1;
     fixed-columns: true;
     spacing: 20px;

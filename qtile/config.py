@@ -305,7 +305,7 @@ def init_widgets_list():
                         ]
                 ),
                 widget.Spacer(
-                        length=210,
+                        length=230,
                 ),
                 widget.GroupBox(font=font1,
                         fontsize = 15,
@@ -362,7 +362,7 @@ def init_widgets_list():
                         font=font1,
                         foreground=colors[12],
                         padding=0,
-                        format='   {load_percent}%  ',
+                        format='   {load_percent:.1f}%  ',
                         fontsize=16,
                         update_interval=1,
                          decorations=[
@@ -386,11 +386,25 @@ def init_widgets_list():
                         font=font1,
                         foreground=colors[8],
                         padding=0,
-                        fmt='   {}  ',
+                        emoji=True,
+                        emoji_list=['󰖁','','','󰕾'],
+                        fmt='  {} ',
                         fontsize=16,
                         scroll=True,
                          decorations=[
-                            RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=0)
+                            RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=0,group=True)
+                        ]
+
+                ),                
+                widget.Volume(
+                        font=font1,
+                        foreground=colors[8],
+                        padding=0,
+                        fmt='{}  ',
+                        fontsize=16,
+                        scroll=True,
+                         decorations=[
+                            RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=0,group=True)
                         ]
 
                 ),

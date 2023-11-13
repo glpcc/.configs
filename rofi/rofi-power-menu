@@ -4,13 +4,10 @@
 
 if [ -z "$1" ]
 then
-    echo -e '\n\n\n\n鈴'
+    echo -e '\n\n\n󰒲'
 else
     case $1 in
-        )
-            loginctl terminate-session ${XDG_SESSION_ID-}
-            ;;
-        鈴)
+        󰒲)
             systemctl suspend
             ;;
         )
